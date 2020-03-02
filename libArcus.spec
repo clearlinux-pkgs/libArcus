@@ -4,10 +4,10 @@
 #
 Name     : libArcus
 Version  : 4.5.0
-Release  : 12
+Release  : 13
 URL      : https://github.com/Ultimaker/libArcus/archive/4.5.0/libArcus-4.5.0.tar.gz
 Source0  : https://github.com/Ultimaker/libArcus/archive/4.5.0/libArcus-4.5.0.tar.gz
-Summary  : No detailed summary available
+Summary  : A library designed to facilitate the communication between Cura and its backend and similar code.
 Group    : Development/Tools
 License  : BSD-3-Clause LGPL-3.0
 Requires: libArcus-lib = %{version}-%{release}
@@ -34,6 +34,7 @@ Summary: dev components for the libArcus package.
 Group: Development
 Requires: libArcus-lib = %{version}-%{release}
 Provides: libArcus-devel = %{version}-%{release}
+Requires: libArcus = %{version}-%{release}
 Requires: libArcus = %{version}-%{release}
 
 %description dev
@@ -86,9 +87,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1582746322
+export SOURCE_DATE_EPOCH=1583166658
 mkdir -p clr-build
 pushd clr-build
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
@@ -99,7 +101,7 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1582746322
+export SOURCE_DATE_EPOCH=1583166658
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libArcus
 cp %{_builddir}/libArcus-4.5.0/LICENSE %{buildroot}/usr/share/package-licenses/libArcus/2fa84abcb9ebd82e02a9ba263551d24b04e8c691
