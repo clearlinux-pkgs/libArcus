@@ -4,7 +4,7 @@
 #
 Name     : libArcus
 Version  : 4.9.0
-Release  : 26
+Release  : 27
 URL      : https://github.com/Ultimaker/libArcus/archive/4.9.0/libArcus-4.9.0.tar.gz
 Source0  : https://github.com/Ultimaker/libArcus/archive/4.9.0/libArcus-4.9.0.tar.gz
 Summary  : No detailed summary available
