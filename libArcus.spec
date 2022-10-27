@@ -4,7 +4,7 @@
 #
 Name     : libArcus
 Version  : 4.13.1
-Release  : 40
+Release  : 41
 URL      : https://github.com/Ultimaker/libArcus/archive/4.13.1/libArcus-4.13.1.tar.gz
 Source0  : https://github.com/Ultimaker/libArcus/archive/4.13.1/libArcus-4.13.1.tar.gz
 Summary  : No detailed summary available
@@ -86,7 +86,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1644433720
+export SOURCE_DATE_EPOCH=1666892104
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -99,11 +99,11 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1644433720
+export SOURCE_DATE_EPOCH=1666892104
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libArcus
-cp %{_builddir}/libArcus-4.13.1/LICENSE %{buildroot}/usr/share/package-licenses/libArcus/2fa84abcb9ebd82e02a9ba263551d24b04e8c691
-cp %{_builddir}/libArcus-4.13.1/cmake/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/libArcus/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/libArcus-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/libArcus/2fa84abcb9ebd82e02a9ba263551d24b04e8c691 || :
+cp %{_builddir}/libArcus-%{version}/cmake/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/libArcus/ff3ed70db4739b3c6747c7f624fe2bad70802987 || :
 pushd clr-build
 %make_install
 popd
